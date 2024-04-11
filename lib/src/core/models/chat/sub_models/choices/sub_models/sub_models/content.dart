@@ -59,7 +59,7 @@ class OpenAIChatCompletionChoiceMessageContentItemModel {
     String imageBase64,
   ) {
     return OpenAIChatCompletionChoiceMessageContentItemModel._(
-      type: 'image_base64',
+      type: 'image_url',
       imageBase64: imageBase64,
     );
   }
@@ -80,20 +80,14 @@ class OpenAIChatCompletionChoiceMessageContentItemModel {
   ) {
     if (identical(this, other)) return true;
 
-    return other.type == type &&
-        other.text == text &&
-        other.imageUrl == imageUrl &&
-        other.imageBase64 == imageBase64;
+    return other.type == type && other.text == text && other.imageUrl == imageUrl && other.imageBase64 == imageBase64;
   }
 
   @override
   String toString() => switch (type) {
-        'text' =>
-          'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type, text: $text)',
-        'image' =>
-          'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type, imageUrl: $imageUrl)',
-          'image_base64' =>
-          'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type, imageBase64: $imageBase64)',
+        'text' => 'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type, text: $text)',
+        'image' => 'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type, imageUrl: $imageUrl)',
+        'image_base64' => 'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type, imageBase64: $imageBase64)',
         _ => 'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type)',
       };
 }
